@@ -3,6 +3,7 @@ package cn.ycl.com.viewpagerdiy.viewpager;
 import android.content.Context;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 
 import com.nineoldandroids.view.ViewHelper;
@@ -33,6 +34,7 @@ public class MyViewPager extends ViewPager{
     @Override
     protected void onPageScrolled(int position, float offset, int offsetPixels) {
         float effectoffset =  isSmall(offset)?0:offset;
+        Log.i("Position",String.valueOf(position));
         mleft =getChlidView(position);
         mRight = getChlidView(position+1);
         animateStack(mleft,mRight,effectoffset,offsetPixels);

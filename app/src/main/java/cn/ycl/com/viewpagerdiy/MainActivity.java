@@ -10,12 +10,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.squareup.picasso.Picasso;
+
 import cn.ycl.com.viewpagerdiy.viewpager.MyViewPager;
 
 public class MainActivity extends AppCompatActivity {
     private MyPageAdapter adapter;
     private MyViewPager viewPager;
-    private int[] arr = {R.drawable.leimu1,R.drawable.leimu2,R.drawable.leim3};
+    private int[] arr = {R.drawable.drawable1,R.drawable.drawable2,R.drawable.drawable3};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public Object instantiateItem(ViewGroup container, int position) {
             ImageView imageView = new ImageView(MainActivity.this);
-            imageView.setImageResource(arr[position]);
+            Picasso.with(MainActivity.this).load(arr[position]).into(imageView);
             imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
             container.addView(imageView);
             viewPager.addChlidView(position,imageView);
